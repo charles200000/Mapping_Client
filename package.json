@@ -1,0 +1,23 @@
+{
+  "name": "mapping_client",
+  "version": "0.0.1",
+  "description": "This is the client for the mapping soft",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charles200000/Mapping_Client.git"
+  },
+  "author": "charles200000",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charles200000/Mapping_Client/issues"
+  },
+  "homepage": "https://github.com/charles200000/Mapping_Client#readme",
+  "devDependencies": {
+    "electron": "^5.0.3",
+    "leaflet": "^1.5.1"
+  }
+}
