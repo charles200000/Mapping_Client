@@ -1,8 +1,32 @@
-var L = require('leaflet');
-var map = L.map('map').setView([45.528, -122.680], 13);
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: 'your.mapbox.access.token'
-}).addTo(mymap);
+var Cesium = require('../thirdParty/cesium')
+
+
+Cesium.Ion.defaultAccessToken = null;
+
+//Initialize the viewer widget with several custom options and mixins.
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    //Hide the base layer picker
+    animation: false,
+    baseLayerPicker : true,
+    fullscreenButton: false,
+    baseLayerPicker:false,
+    homeButton:false,
+    infoBox:false,
+    timeline:false,
+    navigationHelpButton:false,
+    navigationInstructionsInitiallyVisible:false,
+    //Use OpenStreetMaps
+    imageryProvider : new Cesium.createOpenStreetMapImageryProvider({
+        url : 'http://map.tacticalmapping.com/osm/'
+    }),
+    });
+    
+    viewer.scene.frameState.creditDisplay.addDefaultCredit(credit)
+    //Add basic drag and drop functionality
+    viewer.extend(Cesium.viewerDragDropMixin);
+    
+    //Show a pop-up alert if we encounter an error when processing a dropped file
+    viewer.dropError.addEventListener(function(dropHandler, name, error) {
+    console.log(error);
+    window.alert(error);
+    });

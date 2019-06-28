@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/charles200000/Mapping_Client#readme",
   "devDependencies": {
-    "electron": "^5.0.3",
-    "leaflet": "^1.5.1"
+    "electron": "^5.0.3"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
   }
 }
